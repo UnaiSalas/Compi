@@ -70,7 +70,13 @@
 programa : RPROGRAM TIDENTIFIER 
     { codigo.anadirInstruccion(*$1 + " " + *$2 + ";"); } 
     declaraciones decl_de_subprogs TLBRACE lista_de_sentencias TRBRACE 
-    { codigo.anadirInstruccion("halt;"); codigo.escribir(); }
+    { codigo.anadirInstruccion("halt;"); 
+    if($7->exits.empty() == false){
+        printf("Error en la semantica\n");
+        yyerror("Exit fuera del bucle");
+    }else{
+        codigo.escribir(); }
+    }
     ;
 
 declaraciones : tipo lista_de_ident 
@@ -313,6 +319,7 @@ expr :
     {
         $$ = new expresionstruct;
         $$->nom = codigo.nuevoId();
+        codigo.anadirInstruccion("if " + $3->nom + "=0 goto ERRORDIV0"); //comprobacion dinamica
         codigo.anadirInstruccion($$->nom + " := " + $1->nom + " / " + $3->nom + ";");
         $$->trues = codigo.iniLista(0);
         $$->falses = codigo.iniLista(0);
