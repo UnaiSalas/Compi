@@ -1,0 +1,11 @@
+program prueba
+
+    int p;
+
+    {
+        p=2;
+        if p < 10 and p > 1 {
+            p = p +1;
+        };
+
+    }

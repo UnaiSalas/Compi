@@ -40,6 +40,7 @@ do                      TOKEN(RDO);
 skip                    TOKEN(RSKIP);
 read                    TOKEN(RREAD);
 println                 TOKEN(RPRINTLN);
+and                     TOKEN(RAND);
 
 "{"			            TOKEN(TLBRACE);
 "}"                     TOKEN(TRBRACE);

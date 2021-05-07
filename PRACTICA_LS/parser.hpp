@@ -1,4 +1,4 @@
-/* A Bison parser, made by GNU Bison 3.7.  */
+/* A Bison parser, made by GNU Bison 3.5.1.  */
 
 /* Bison interface for Yacc-like parsers in C
 
@@ -31,9 +31,8 @@
    This special exception was added by the Free Software Foundation in
    version 2.2 of Bison.  */
 
-/* DO NOT RELY ON FEATURES THAT ARE NOT DOCUMENTED in the manual,
-   especially those whose name start with YY_ or yy_.  They are
-   private implementation details that can be changed or removed.  */
+/* Undocumented macros, especially those whose name start with YY_,
+   are private implementation details.  Do not rely on them.  */
 
 #ifndef YY_YY_PARSER_HPP_INCLUDED
 # define YY_YY_PARSER_HPP_INCLUDED
@@ -45,52 +44,48 @@
 extern int yydebug;
 #endif
 
-/* Token kinds.  */
+/* Token type.  */
 #ifndef YYTOKENTYPE
 # define YYTOKENTYPE
   enum yytokentype
   {
-    YYEMPTY = -2,
-    YYEOF = 0,                     /* "end of file"  */
-    YYerror = 256,                 /* error  */
-    YYUNDEF = 257,                 /* "invalid token"  */
-    TIDENTIFIER = 258,             /* TIDENTIFIER  */
-    TINTEGER = 259,                /* TINTEGER  */
-    TDOUBLE = 260,                 /* TDOUBLE  */
-    TMUL = 261,                    /* TMUL  */
-    TDIV = 262,                    /* TDIV  */
-    TPLUS = 263,                   /* TPLUS  */
-    TMINUS = 264,                  /* TMINUS  */
-    TCGLE = 265,                   /* TCGLE  */
-    TCLT = 266,                    /* TCLT  */
-    TCLE = 267,                    /* TCLE  */
-    TCGT = 268,                    /* TCGT  */
-    TCGE = 269,                    /* TCGE  */
-    TEQUAL = 270,                  /* TEQUAL  */
-    TNEQUAL = 271,                 /* TNEQUAL  */
-    TSEMIC = 272,                  /* TSEMIC  */
-    TASSIG = 273,                  /* TASSIG  */
-    TLBRACE = 274,                 /* TLBRACE  */
-    TRBRACE = 275,                 /* TRBRACE  */
-    TLPAREN = 276,                 /* TLPAREN  */
-    TRPAREN = 277,                 /* TRPAREN  */
-    TCOMMA = 278,                  /* TCOMMA  */
-    RPROGRAM = 279,                /* RPROGRAM  */
-    RPROCEDURE = 280,              /* RPROCEDURE  */
-    RFLOAT = 281,                  /* RFLOAT  */
-    RINTEGER = 282,                /* RINTEGER  */
-    RWHILE = 283,                  /* RWHILE  */
-    RUNTIL = 284,                  /* RUNTIL  */
-    RIF = 285,                     /* RIF  */
-    RELSE = 286,                   /* RELSE  */
-    RFOREVER = 287,                /* RFOREVER  */
-    RDO = 288,                     /* RDO  */
-    RSKIP = 289,                   /* RSKIP  */
-    REXIT = 290,                   /* REXIT  */
-    RREAD = 291,                   /* RREAD  */
-    RPRINTLN = 292                 /* RPRINTLN  */
+    TIDENTIFIER = 258,
+    TINTEGER = 259,
+    TDOUBLE = 260,
+    TMUL = 261,
+    TDIV = 262,
+    TPLUS = 263,
+    TMINUS = 264,
+    TCGLE = 265,
+    TCLT = 266,
+    TCLE = 267,
+    TCGT = 268,
+    TCGE = 269,
+    TEQUAL = 270,
+    TNEQUAL = 271,
+    TSEMIC = 272,
+    TASSIG = 273,
+    TLBRACE = 274,
+    TRBRACE = 275,
+    TLPAREN = 276,
+    TRPAREN = 277,
+    TCOMMA = 278,
+    RPROGRAM = 279,
+    RPROCEDURE = 280,
+    RFLOAT = 281,
+    RINTEGER = 282,
+    RWHILE = 283,
+    RUNTIL = 284,
+    RIF = 285,
+    RELSE = 286,
+    RFOREVER = 287,
+    RDO = 288,
+    RSKIP = 289,
+    REXIT = 290,
+    RAND = 291,
+    RREAD = 292,
+    RPRINTLN = 293
   };
-  typedef enum yytokentype yytoken_kind_t;
 #endif
 
 /* Value type.  */
@@ -110,7 +105,7 @@ union YYSTYPE
     variablestruct *var;
     expresionstruct *expr; 
 
-#line 114 "parser.hpp"
+#line 109 "parser.hpp"
 
 };
 typedef union YYSTYPE YYSTYPE;
