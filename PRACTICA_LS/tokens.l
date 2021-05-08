@@ -41,6 +41,8 @@ skip                    TOKEN(RSKIP);
 read                    TOKEN(RREAD);
 println                 TOKEN(RPRINTLN);
 and                     TOKEN(RAND);
+or                      TOKEN(ROR);
+not                     TOKEN(RNOT);
 
 "{"			            TOKEN(TLBRACE);
 "}"                     TOKEN(TRBRACE);

@@ -42,12 +42,12 @@
 %token <str> TSEMIC TASSIG TLBRACE TRBRACE TLPAREN TRPAREN TCOMMA
 %token <str> RPROGRAM RPROCEDURE
 %token <str> RFLOAT RINTEGER
-%token <str> RWHILE RUNTIL RIF RELSE RFOREVER RDO RSKIP REXIT RAND
+%token <str> RWHILE RUNTIL RIF RELSE RFOREVER RDO RSKIP REXIT RAND ROR RNOT
 %token <str> RREAD RPRINTLN
 
 
 // %nonassoc TEQUAL TNEQUAL TCLE TCGT TCGE 
-%right RAND
+%right RAND ROR
 %left TEQUAL TCGT TCLT TCGE TCLE TNEQUAL
 %left TPLUS TMINUS
 %left TMUL TDIV
@@ -335,6 +335,26 @@ expr :
         $$->falses = *codigo.unir($1->falses, $4->falses);
 
         delete $1; delete $3; delete $4;
+    }
+    | expr ROR M expr
+    {
+        codigo.completarInstrucciones($1->falses, $3->ref);
+
+        $$ = new expresionstruct;
+        $$->trues = *codigo.unir($1->trues, $4->trues);
+        $$->falses = $4->falses;
+
+        delete $1; delete $3; delete $4;
+
+    }
+    | RNOT expr
+    {
+        $$ = new expresionstruct;
+        $$->falses = $2->trues;
+        $$->trues = $2->falses;
+
+        delete $2;
+
     }
     | variable
     {

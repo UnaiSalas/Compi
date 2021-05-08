@@ -19,5 +19,6 @@ prueba:
 	./parser <Pruebas/PruebaBuena1.in
 	./parser <Pruebas/PruebaBuena2.in
 	./parser <Pruebas/PruebaBuena3.in
+	./parser <Pruebas/PruebaBuena4.in
 	./parser <Pruebas/PruebaMala1.in
 	./parser <Pruebas/PruebaMala2.in
