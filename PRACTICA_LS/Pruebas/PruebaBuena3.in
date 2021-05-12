@@ -1,5 +1,5 @@
 program prueba
-
+    [* En este programa se comprueba como tanto el and, el or y el not estan bien definidos y su traduccion es la correcta*]
     int p;
     int a;
 
@@ -11,6 +11,9 @@ program prueba
                 a = a - 1;
             };
             p = p + 1;
+            if not p > 5 {
+                p = p + 5;
+            };
         };
 
     }

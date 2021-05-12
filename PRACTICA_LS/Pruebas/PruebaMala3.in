@@ -1,5 +1,6 @@
 program prueba
-    [* En este programa se comprueba que tanto el for como el exit funcionan correctamente. El exit debe estar dentro del bucle y sacarnos de el en caso de ejecutarse*]
+    [* En este programa (que viene a ser una copia casi exacta de la prueba valida nº4) se comprueba que al añadir un exit fuera del bucle, el compilador nos indicará que
+    por medio de un mensaje de error que tenemos un exit fuera del bucle, sin escribirnos el codigo intermedio*]
     int p;
     int a;
 
@@ -16,6 +17,7 @@ program prueba
             exit;
         };
     };
+    exit;
     println(p);
     println(a);
     }
