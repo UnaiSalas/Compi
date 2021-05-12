@@ -172,6 +172,7 @@ sentencia : variable TASSIG expr TSEMIC
     {
         codigo.anadirInstruccion("goto" + to_string($4->ref) + ";");
 		codigo.completarInstrucciones($5->exits, $7->ref + 1);
+        codigo.completarInstrucciones($5->skips, $7->ref + 1);
 		$$ = new sentenciastruct;
 		$$->exits = codigo.iniLista(0);
         $$->skips = codigo.iniLista(0);

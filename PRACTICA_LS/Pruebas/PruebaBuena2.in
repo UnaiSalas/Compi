@@ -24,6 +24,7 @@ program programa_ejemplo2
         while forever {
 			read(var1);
 			println(var1);
+            skip if n2 <= n1;
 			exit;
 		}; # fin de while forever
     
