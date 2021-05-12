@@ -38,16 +38,16 @@
 /* declaración de tokens. Esto debe coincidir con tokens.l */
 %token <str> TIDENTIFIER TINTEGER TDOUBLE
 %token <str> TMUL TDIV TPLUS TMINUS
-%token <str> TCGLE TCLT TCLE TCGT TCGE  TEQUAL TNEQUAL
+%token <str> TCGLE TCLT TCLE TCGT TCGE TEQUAL TNEQUAL
 %token <str> TSEMIC TASSIG TLBRACE TRBRACE TLPAREN TRPAREN TCOMMA
 %token <str> RPROGRAM RPROCEDURE
 %token <str> RFLOAT RINTEGER
-%token <str> RWHILE RUNTIL RIF RELSE RFOREVER RDO RSKIP REXIT RAND ROR RNOT
+%token <str> RWHILE RUNTIL RIF RELSE RFOREVER RDO RSKIP REXIT RAND ROR RNOT RFOR
 %token <str> RREAD RPRINTLN
 
 
 // %nonassoc TEQUAL TNEQUAL TCLE TCGT TCGE 
-%right RAND ROR
+%right RAND ROR RNOT
 %left TEQUAL TCGT TCLT TCGE TCLE TNEQUAL
 %left TPLUS TMINUS
 %left TMUL TDIV
@@ -220,6 +220,23 @@ sentencia : variable TASSIG expr TSEMIC
         $$->exits = codigo.iniLista(0);
         $$->skips = codigo.iniLista(0);
 		delete $3;
+    }
+    | RFOR TLPAREN tipo variable TASSIG expr TSEMIC
+    {
+        codigo.anadirDeclaraciones(codigo.iniLista($4->nom), $3->clase);
+        codigo.anadirInstruccion($4->nom + " := " + $6->nom + ";");
+    }
+        M expr M TSEMIC variable TASSIG expr TRPAREN TLBRACE lista_de_sentencias M TRBRACE TSEMIC
+    {
+        codigo.anadirInstruccion($13->nom + " := " + $15->nom + ";");
+        codigo.anadirInstruccion("goto " + to_string($9->ref) + ";");
+        codigo.completarInstrucciones($10->trues, $11->ref);
+        codigo.completarInstrucciones($10->falses, $19->ref + 2);
+        codigo.completarInstrucciones($18->exits, $19->ref + 2);
+	    $$ = new sentenciastruct; 
+        $$->exits = codigo.iniLista(0);
+        $$->skips = codigo.iniLista(0);
+        delete $3; delete $4; delete $6; delete $9; delete $10; delete $11; delete $13; delete $15; delete $18; delete $19; 
     }
     ;
 

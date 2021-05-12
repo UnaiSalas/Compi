@@ -5,7 +5,7 @@ program prueba
     {
         p=2;
         if p < 10 or p > 1 {
-            p = p +1;
+            p = p + 1;
         };
 
     }

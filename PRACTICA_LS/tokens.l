@@ -43,6 +43,7 @@ println                 TOKEN(RPRINTLN);
 and                     TOKEN(RAND);
 or                      TOKEN(ROR);
 not                     TOKEN(RNOT);
+for                     TOKEN(RFOR);
 
 "{"			            TOKEN(TLBRACE);
 "}"                     TOKEN(TRBRACE);

@@ -85,8 +85,9 @@ extern int yydebug;
     RAND = 291,
     ROR = 292,
     RNOT = 293,
-    RREAD = 294,
-    RPRINTLN = 295
+    RFOR = 294,
+    RREAD = 295,
+    RPRINTLN = 296
   };
 #endif
 
@@ -107,7 +108,7 @@ union YYSTYPE
     variablestruct *var;
     expresionstruct *expr; 
 
-#line 111 "parser.hpp"
+#line 112 "parser.hpp"
 
 };
 typedef union YYSTYPE YYSTYPE;
