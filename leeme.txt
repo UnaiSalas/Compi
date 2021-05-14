@@ -1,0 +1,8 @@
+Nombre del autor: Unai Salas Lavesa
+
+Instrucciones para compilar los ficheros:
+
+	1. Has de descomprimir el fichero proporcionado en la entrega de Egela y situarte dentro de ella, concretamente has de acceder a la carpeta PRACTICA_LS.
+	
+	2. Una vez situados dentro, se recomienda ejecutar el comando "make clean" antes de compilar por los posibles errores que puede ocasionar el cambio de SO. 
+	Para poder compilar el traductor basta con estar situado en la carpeta mencionada anteriormente y ejecutar el comando "make".

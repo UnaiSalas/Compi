@@ -6,8 +6,6 @@ int aux, iteraciones;
 {
     [* En este programa se prueba que todo lo mencionado anteriormente se ejecuta correctamente pero unicamente en un mismo programa mas complejo*]
 
-    
-
     aux = x;
     resul = y;
     if resul < 1000  {
