@@ -10,12 +10,12 @@ program prueba
         a = a + 1;
         for (int j = 0; j < i; j = j +1){
             p = p + 5;
-        };
+        }; #fin del for
         if p < i and a > p {
             p = p/a;
             exit;
-        };
-    };
+        }; #fin del if
+    }; #fin del for
     println(p);
     println(a);
     }

@@ -1,11 +1,42 @@
-program prueba
+program completo
 
-    int p;
+int a, b, c ;
+float d, e ;
+int aux, iteraciones;
+{
+    [* En este programa se prueba que todo lo mencionado anteriormente se ejecuta correctamente pero unicamente en un mismo programa mas complejo*]
 
-    {
-    p = 2;
-    for (int i = 0; i < 5; i = i +1){
-        a = a +1;
-    };
+    
 
-    }
+    aux = x;
+    resul = y;
+    if resul < 1000  {
+        iteraciones = 0;   	
+        do {
+            if aux > result and b < c {
+                resul = resul + 1;
+            }; #fin del if
+            skip if resul > b;
+            aux = aux - 1;
+            if b>c or not a<aux and a>b{
+                b = b / a;
+            }; #fin del if
+            iteraciones = iteraciones + 1;
+            } until aux == 0
+        else {
+            if resul < 0 { 
+                exit; 
+            };
+            for (int i = 0; i < 5; i = i +3){
+                b = a + b;
+            }; #fin del for
+            println(iteraciones);	
+        };		#fin del do
+    };  #fin del if
+
+   read(a); read(b);
+   d = 1/b;
+   e = 0.1e-1/a;
+   c = c*(c*d)+e;
+   println(c*c);
+} 

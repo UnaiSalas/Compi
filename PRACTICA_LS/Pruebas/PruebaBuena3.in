@@ -1,19 +1,24 @@
 program prueba
-    [* En este programa se comprueba como tanto el and, el or y el not estan bien definidos y su traduccion es la correcta*]
-    int p;
-    int a;
+    [* En este programa se comprueba como tanto el and, el or y el not estan bien definidos y su traduccion es la correcta, cambiando el valor
+    de la variable a dependiendo de las condiciones que cumpla *]
 
     {
-        p=2;
-        a=10;
-        if p < 10 or p > 1 {
-            if a >= 0 and a > p{
-                a = a - 1;
-            };
-            p = p + 1;
-            if not p > 5 {
-                p = p + 5;
-            };
-        };
+        if a > b and b < c {
+            a = 2;
+        }; #fin del if
+
+        if r < t or u < v{
+            a = 6;
+        }; #fin del if
+        
+        if b>c or not a<d and a>b{
+            a=11;
+        }; #fin del if
 
     }
+
+
+
+
+
+    
