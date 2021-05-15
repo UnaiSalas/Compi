@@ -1,0 +1,22 @@
+program prueba
+    [* En este programa se comprueba que al sacar la actualizacion de la variable que recorre el bucle (la i del primer for), debe devolver error*]
+    int p;
+    int a;
+
+    {
+    p = 2;
+    a = 0;
+    for (int i = 0; i < 5){
+        i = i +3
+        a = a + 1;
+        for (int j = 0; j < i; j = j +1){
+            p = p + 5;
+        }; #fin del for
+        if p < i and a > p {
+            p = p/a;
+            exit;
+        }; #fin del if
+    }; #fin del for
+    println(p);
+    println(a);
+    }

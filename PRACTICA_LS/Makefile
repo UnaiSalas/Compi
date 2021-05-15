@@ -24,3 +24,4 @@ prueba:
 	./parser <Pruebas/PruebaMala1.in
 	./parser <Pruebas/PruebaMala2.in
 	./parser <Pruebas/PruebaMala3.in
+	./parser <Pruebas/PruebaMala4.in

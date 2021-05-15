@@ -4,17 +4,14 @@ program programa_ejemplo2
     
     [*
     Lista de cosas (comentario):
-    - Comentario con muchas lineas.
-    - Cosa 1
-    - Cosa 2
-        - Cosa 2.1
+    - Comprobacion del exit funcionando correctamente
+    - Comprobacion de estructuras de control (while forever)
     *]
 
 	proc mult(int <= n1; int <= n2; int <=> n3)
 	{	
         if n1 > n2 {
             n3 = n1 * n2;
-            exit;
         }; # fin del if
 
         if n2 <= n1 {
@@ -25,7 +22,10 @@ program programa_ejemplo2
 			read(var1);
 			println(var1);
             skip if n2 <= n1;
-			exit;
+			n1 = n2;
+            if n2 >= n1 {
+                exit;
+            };
 		}; # fin de while forever
     
 	} # fin de proc mult

@@ -170,7 +170,7 @@ sentencia : variable TASSIG expr TSEMIC
     }
     | RWHILE RFOREVER TLBRACE M lista_de_sentencias TRBRACE M TSEMIC
     {
-        codigo.anadirInstruccion("goto" + to_string($4->ref) + ";");
+        codigo.anadirInstruccion("goto " + to_string($4->ref) + ";");
 		codigo.completarInstrucciones($5->exits, $7->ref + 1);
         codigo.completarInstrucciones($5->skips, $7->ref + 1);
 		$$ = new sentenciastruct;

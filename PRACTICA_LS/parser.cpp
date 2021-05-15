@@ -1650,7 +1650,7 @@ yyreduce:
   case 30:
 #line 172 "parser.y"
     {
-        codigo.anadirInstruccion("goto" + to_string((yyvsp[-4].m)->ref) + ";");
+        codigo.anadirInstruccion("goto " + to_string((yyvsp[-4].m)->ref) + ";");
 		codigo.completarInstrucciones((yyvsp[-3].lsent)->exits, (yyvsp[-1].m)->ref + 1);
         codigo.completarInstrucciones((yyvsp[-3].lsent)->skips, (yyvsp[-1].m)->ref + 1);
 		(yyval.sent) = new sentenciastruct;
