@@ -201,7 +201,8 @@ sentencia : variable TASSIG expr TSEMIC
     | REXIT M TSEMIC
     {
         $$ = new sentenciastruct;
-		$$->exits = codigo.iniLista(codigo.obtenRef());
+		$$->exits = codigo.iniLista($2->ref);
+        
         $$->skips = codigo.iniLista(0);
         codigo.anadirInstruccion("goto");
     }

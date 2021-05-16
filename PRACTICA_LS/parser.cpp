@@ -574,9 +574,9 @@ static const yytype_int16 yyrline[] =
        0,    72,    72,    71,    84,    83,    86,    89,    98,   105,
      108,   109,   112,   113,   116,   116,   120,   121,   125,   124,
      130,   131,   132,   136,   135,   138,   141,   149,   154,   162,
-     171,   181,   193,   201,   208,   216,   226,   225,   244,   246,
-     250,   260,   270,   280,   290,   300,   310,   319,   328,   337,
-     347,   357,   368,   377,   385,   392,   399
+     171,   181,   193,   201,   209,   217,   227,   226,   245,   247,
+     251,   261,   271,   281,   291,   301,   311,   320,   329,   338,
+     348,   358,   369,   378,   386,   393,   400
 };
 #endif
 
@@ -1693,15 +1693,16 @@ yyreduce:
 #line 202 "parser.y"
     {
         (yyval.sent) = new sentenciastruct;
-		(yyval.sent)->exits = codigo.iniLista(codigo.obtenRef());
+		(yyval.sent)->exits = codigo.iniLista((yyvsp[-1].m)->ref);
+        
         (yyval.sent)->skips = codigo.iniLista(0);
         codigo.anadirInstruccion("goto");
     }
-#line 1701 "parser.cpp"
+#line 1702 "parser.cpp"
     break;
 
   case 34:
-#line 209 "parser.y"
+#line 210 "parser.y"
     {
         codigo.anadirInstruccion("read " + (yyvsp[-2].var)->nom + ";");
 		(yyval.sent) = new sentenciastruct; 
@@ -1709,11 +1710,11 @@ yyreduce:
         (yyval.sent)->skips = codigo.iniLista(0);
 		delete (yyvsp[-2].var);
     }
-#line 1713 "parser.cpp"
+#line 1714 "parser.cpp"
     break;
 
   case 35:
-#line 217 "parser.y"
+#line 218 "parser.y"
     {
         codigo.anadirInstruccion("write " + (yyvsp[-2].expr)->nom + ";");
 		codigo.anadirInstruccion("writeln;");
@@ -1722,20 +1723,20 @@ yyreduce:
         (yyval.sent)->skips = codigo.iniLista(0);
 		delete (yyvsp[-2].expr);
     }
-#line 1726 "parser.cpp"
+#line 1727 "parser.cpp"
     break;
 
   case 36:
-#line 226 "parser.y"
+#line 227 "parser.y"
     {
         codigo.anadirDeclaraciones(codigo.iniLista((yyvsp[-3].var)->nom), (yyvsp[-4].tp)->clase);
         codigo.anadirInstruccion((yyvsp[-3].var)->nom + " := " + (yyvsp[-1].expr)->nom + ";");
     }
-#line 1735 "parser.cpp"
+#line 1736 "parser.cpp"
     break;
 
   case 37:
-#line 231 "parser.y"
+#line 232 "parser.y"
     {
         codigo.anadirInstruccion((yyvsp[-8].var)->nom + " := " + (yyvsp[-6].expr)->nom + ";");
         codigo.anadirInstruccion("goto " + to_string((yyvsp[-12].m)->ref) + ";");
@@ -1747,23 +1748,23 @@ yyreduce:
         (yyval.sent)->skips = codigo.iniLista(0);
         delete (yyvsp[-18].tp); delete (yyvsp[-17].var); delete (yyvsp[-15].expr); delete (yyvsp[-12].m); delete (yyvsp[-11].expr); delete (yyvsp[-10].m); delete (yyvsp[-8].var); delete (yyvsp[-6].expr); delete (yyvsp[-3].lsent); delete (yyvsp[-2].m); 
     }
-#line 1751 "parser.cpp"
+#line 1752 "parser.cpp"
     break;
 
   case 38:
-#line 244 "parser.y"
+#line 245 "parser.y"
    { (yyval.m) = new mstruct; (yyval.m)->ref = codigo.obtenRef(); }
-#line 1757 "parser.cpp"
+#line 1758 "parser.cpp"
     break;
 
   case 39:
-#line 246 "parser.y"
+#line 247 "parser.y"
                        { (yyval.var) = new variablestruct; (yyval.var)->nom = *(yyvsp[0].str); }
-#line 1763 "parser.cpp"
+#line 1764 "parser.cpp"
     break;
 
   case 40:
-#line 251 "parser.y"
+#line 252 "parser.y"
     {
         (yyval.expr) = new expresionstruct;
         (yyval.expr)->nom = codigo.iniNom();
@@ -1773,11 +1774,11 @@ yyreduce:
         codigo.anadirInstruccion("goto");
         delete (yyvsp[-2].expr); delete (yyvsp[0].expr);
     }
-#line 1777 "parser.cpp"
+#line 1778 "parser.cpp"
     break;
 
   case 41:
-#line 261 "parser.y"
+#line 262 "parser.y"
     {
         (yyval.expr) = new expresionstruct;
         (yyval.expr)->nom = codigo.iniNom();
@@ -1787,11 +1788,11 @@ yyreduce:
         codigo.anadirInstruccion("goto");
         delete (yyvsp[-2].expr); delete (yyvsp[0].expr);
     }
-#line 1791 "parser.cpp"
+#line 1792 "parser.cpp"
     break;
 
   case 42:
-#line 271 "parser.y"
+#line 272 "parser.y"
     {
         (yyval.expr) = new expresionstruct;
         (yyval.expr)->nom = codigo.iniNom();
@@ -1801,11 +1802,11 @@ yyreduce:
         codigo.anadirInstruccion("goto");
         delete (yyvsp[-2].expr); delete (yyvsp[0].expr);
     }
-#line 1805 "parser.cpp"
+#line 1806 "parser.cpp"
     break;
 
   case 43:
-#line 281 "parser.y"
+#line 282 "parser.y"
     {
         (yyval.expr) = new expresionstruct;
         (yyval.expr)->nom = codigo.iniNom();
@@ -1815,11 +1816,11 @@ yyreduce:
         codigo.anadirInstruccion("goto");
         delete (yyvsp[-2].expr); delete (yyvsp[0].expr);
     }
-#line 1819 "parser.cpp"
+#line 1820 "parser.cpp"
     break;
 
   case 44:
-#line 291 "parser.y"
+#line 292 "parser.y"
     {
         (yyval.expr) = new expresionstruct;
         (yyval.expr)->nom = codigo.iniNom();
@@ -1829,11 +1830,11 @@ yyreduce:
         codigo.anadirInstruccion("goto");
         delete (yyvsp[-2].expr); delete (yyvsp[0].expr);
     }
-#line 1833 "parser.cpp"
+#line 1834 "parser.cpp"
     break;
 
   case 45:
-#line 301 "parser.y"
+#line 302 "parser.y"
     {
         (yyval.expr) = new expresionstruct;
         (yyval.expr)->nom = codigo.iniNom();
@@ -1843,11 +1844,11 @@ yyreduce:
         codigo.anadirInstruccion("goto");
         delete (yyvsp[-2].expr); delete (yyvsp[0].expr);
     }
-#line 1847 "parser.cpp"
+#line 1848 "parser.cpp"
     break;
 
   case 46:
-#line 311 "parser.y"
+#line 312 "parser.y"
     {
         (yyval.expr) = new expresionstruct;
         (yyval.expr)->nom = codigo.nuevoId();
@@ -1856,11 +1857,11 @@ yyreduce:
         (yyval.expr)->falses = codigo.iniLista(0);
         delete (yyvsp[-2].expr); delete (yyvsp[0].expr);
     }
-#line 1860 "parser.cpp"
+#line 1861 "parser.cpp"
     break;
 
   case 47:
-#line 320 "parser.y"
+#line 321 "parser.y"
     {
         (yyval.expr) = new expresionstruct;
         (yyval.expr)->nom = codigo.nuevoId();
@@ -1869,11 +1870,11 @@ yyreduce:
         (yyval.expr)->falses = codigo.iniLista(0);
         delete (yyvsp[-2].expr); delete (yyvsp[0].expr);
     }
-#line 1873 "parser.cpp"
+#line 1874 "parser.cpp"
     break;
 
   case 48:
-#line 329 "parser.y"
+#line 330 "parser.y"
     {
         (yyval.expr) = new expresionstruct;
         (yyval.expr)->nom = codigo.nuevoId();
@@ -1882,11 +1883,11 @@ yyreduce:
         (yyval.expr)->falses = codigo.iniLista(0);
         delete (yyvsp[-2].expr); delete (yyvsp[0].expr);
     }
-#line 1886 "parser.cpp"
+#line 1887 "parser.cpp"
     break;
 
   case 49:
-#line 338 "parser.y"
+#line 339 "parser.y"
     {
         (yyval.expr) = new expresionstruct;
         (yyval.expr)->nom = codigo.nuevoId();
@@ -1896,11 +1897,11 @@ yyreduce:
         (yyval.expr)->falses = codigo.iniLista(0);
         delete (yyvsp[-2].expr); delete (yyvsp[0].expr);
     }
-#line 1900 "parser.cpp"
+#line 1901 "parser.cpp"
     break;
 
   case 50:
-#line 348 "parser.y"
+#line 349 "parser.y"
     {
         codigo.completarInstrucciones((yyvsp[-3].expr)->trues, (yyvsp[-1].m)->ref);
 
@@ -1910,11 +1911,11 @@ yyreduce:
 
         delete (yyvsp[-3].expr); delete (yyvsp[-1].m); delete (yyvsp[0].expr);
     }
-#line 1914 "parser.cpp"
+#line 1915 "parser.cpp"
     break;
 
   case 51:
-#line 358 "parser.y"
+#line 359 "parser.y"
     {
         codigo.completarInstrucciones((yyvsp[-3].expr)->falses, (yyvsp[-1].m)->ref);
 
@@ -1925,11 +1926,11 @@ yyreduce:
         delete (yyvsp[-3].expr); delete (yyvsp[-1].m); delete (yyvsp[0].expr);
 
     }
-#line 1929 "parser.cpp"
+#line 1930 "parser.cpp"
     break;
 
   case 52:
-#line 369 "parser.y"
+#line 370 "parser.y"
     {
         (yyval.expr) = new expresionstruct;
         (yyval.expr)->falses = (yyvsp[0].expr)->trues;
@@ -1938,11 +1939,11 @@ yyreduce:
         delete (yyvsp[0].expr);
 
     }
-#line 1942 "parser.cpp"
+#line 1943 "parser.cpp"
     break;
 
   case 53:
-#line 378 "parser.y"
+#line 379 "parser.y"
     {
         (yyval.expr) = new expresionstruct;
         (yyval.expr)->nom = (yyvsp[0].var)->nom;
@@ -1950,41 +1951,41 @@ yyreduce:
         (yyval.expr)->falses = codigo.iniLista(0);
         delete (yyvsp[0].var);
     }
-#line 1954 "parser.cpp"
+#line 1955 "parser.cpp"
     break;
 
   case 54:
-#line 386 "parser.y"
+#line 387 "parser.y"
     {
         (yyval.expr) = new expresionstruct;
         (yyval.expr)->nom = *(yyvsp[0].str);
         (yyval.expr)->trues = codigo.iniLista(0);
         (yyval.expr)->falses = codigo.iniLista(0);
     }
-#line 1965 "parser.cpp"
+#line 1966 "parser.cpp"
     break;
 
   case 55:
-#line 393 "parser.y"
+#line 394 "parser.y"
     {
         (yyval.expr) = new expresionstruct;
         (yyval.expr)->nom = *(yyvsp[0].str);
         (yyval.expr)->trues = codigo.iniLista(0);
         (yyval.expr)->falses = codigo.iniLista(0);
     }
-#line 1976 "parser.cpp"
+#line 1977 "parser.cpp"
     break;
 
   case 56:
-#line 400 "parser.y"
+#line 401 "parser.y"
     {
         (yyval.expr) = (yyvsp[-1].expr);
     }
-#line 1984 "parser.cpp"
+#line 1985 "parser.cpp"
     break;
 
 
-#line 1988 "parser.cpp"
+#line 1989 "parser.cpp"
 
       default: break;
     }
